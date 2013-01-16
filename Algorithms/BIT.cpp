@@ -1,5 +1,3 @@
-//10
-//1 1 5 4 3 6 6 5 9 10
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,7 +8,7 @@
 #include <algorithm>
 
 using namespace std;
-
+//Create a BIT using the vector vi
 vector<int> BIT(const vector<int> a)
 {
     int k;
@@ -29,6 +27,7 @@ vector<int> BIT(const vector<int> a)
     }
     return tree;
 }
+//Obtain the sum of vi's values from 1 to index (Read cumulative frequency)
 int read(int index, const vector<int> tree)
 {
     int sum =0;
@@ -41,6 +40,7 @@ int read(int index, const vector<int> tree)
     return sum;
 }
 
+//Change the value at some position and update the BIT
 void update(vector<int> &tree, int index, int val)
 {
     while(index<tree.size())
@@ -53,12 +53,9 @@ void update(vector<int> &tree, int index, int val)
 int main()
 {
     vector<int> vi;
-    vi.push_back(1);vi.push_back(0); vi.push_back(2);vi.push_back(1); vi.push_back(1); vi.push_back(3);vi.push_back(0);
-    vi.push_back(4);vi.push_back(2);  vi.push_back(5);  vi.push_back(2);  vi.push_back(2);  vi.push_back(3); vi.push_back(1);vi.push_back(0); vi.push_back(2);
-    
+   
     vector<int> tree;
-    tree = BIT(vi);
-    cout<<read(4,tree);
+    tree = BIT(vi); //create a BIT based on vector vi;
     return 0;
 }
 
